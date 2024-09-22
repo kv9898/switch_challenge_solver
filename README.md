@@ -19,7 +19,6 @@ For the easiest problems (as the one below), you just need to hit `enter`，and 
 ![Easy problem](img/level1.png)
 
 ![Answer with GUI](img/level1as.png)
-:::
 
 *PS: to clear the formula and answer, hit `Tab`*
 
