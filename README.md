@@ -10,7 +10,7 @@ If you have python on you computer, you can run the `GUI.py` or `command_line.py
 
 If you are running on Windows and you are uncomfortable with running Python, you can use the `GUI.exe` or `command_line.exe` directly, after downloading from the [Release](https://github.com/kv9898/switch_challenge_solver/releases) page.up
 
-Please give me a star if you find this useful.
+Please give me a star🌟 if you find this useful.
 
 # Using Drag and Click through GUI
 
