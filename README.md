@@ -8,7 +8,7 @@ There are two ways of using the solver
 
 If you have python on you computer, you can run the `GUI.py` or `command_line.py` directly. Note that you have to use this way if you are running on a MacOS or Linux machine, since I have only built executables for Windows.
 
-If you are running on Windows and you are uncomfortable with running Python, you can use the `GUI.exe` or `command_line.exe` directly, after downloading from the [Release](https://github.com/kv9898/switch_challenge_solver/releases) page.up
+If you are running on Windows and you are uncomfortable with running Python, you can use the `GUI.exe` or `command_line.exe` directly, after downloading from the [Release](https://github.com/kv9898/switch_challenge_solver/releases) page.
 
 Please give me a star🌟 if you find this useful.
 
