@@ -2,11 +2,11 @@
 
 There are two ways of using the solver
 
-1.  Drag and Click through the [Graphical User Interface](#sec-gui) (GUI), which is potentially slower, or
+1.  Drag and Click through the Graphical User Interface (GUI), which is potentially slower, or
 
 2.  Enter the full formula, which can be faster when you are more familiar as you have done more assessments (very bad humour).
 
-# Using Drag and Click through GUI {#sec-gui}
+# Using Drag and Click through GUI
 
 Similar to the problems, the GUI has two rows of "shapes", the row at the top is the inputs while the other one at the bottom is the outputs. There are two ways of rearranging them:
 
@@ -14,12 +14,11 @@ Similar to the problems, the GUI has two rows of "shapes", the row at the top is
 
 2.  Clicking: this will move the clicked shape to the *end*. This allows for the order of your 4 clicks to be the final order of the four shapes.
 
-For the easiest problems (as in @fig-level1), you just need to hit `enter`，and the answer will be displayed below the line edit as in @fig-level1as:
+For the easiest problems (as the one below), you just need to hit `enter`，and the answer will be displayed below the line edit:
 
-::: {layout-ncol=2}
-![Easy problem](img/level1.png){#fig-level1}
+![Easy problem](img/level1.png)
 
-![Answer with GUI](img/level1as.png){#fig-level1as}
+![Answer with GUI](img/level1as.png)
 :::
 
 *PS: to clear the formula and answer, hit `Tab`*
