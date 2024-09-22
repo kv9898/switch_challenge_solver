@@ -208,6 +208,7 @@ class MainWindow(QMainWindow):
         self.layout.addWidget(self.input_shapes)
 
         self.line_edit = QLineEdit()
+        self.line_edit.setPlaceholderText('Enter formula here...')
 
         self.result = QLabel()
         self.result.setMargin(10)
