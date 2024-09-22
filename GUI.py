@@ -257,3 +257,5 @@ if __name__ == "__main__":
     window.show()
     update_sequence()
     sys.exit(app.exec())
+
+#build using pyinstaller --windowed --icon=favicon.ico --add-data="favicon.ico;." GUI.py --onefile
