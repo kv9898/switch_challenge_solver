@@ -2,9 +2,13 @@
 
 There are two ways of using the solver
 
-1.  Drag and Click through the Graphical User Interface (GUI), which is potentially slower, or
+1.  Drag and Click through the Graphical User Interface (GUI), which is potentially slower. This works only for the `GUI.py` or `GUI.exe`.
 
-2.  Enter the full formula, which can be faster when you are more familiar as you have done more assessments (very bad humour).
+2.  Enter the full formula, which can be faster when you are more familiar as you have done more assessments (very bad humour). This works for both `GUI` and `command_line`.
+
+If you have python on you computer, you can run the `GUI.py` or `command_line.py` directly. Note that you have to use this way if you are running on a MacOS or Linux machine, since I have only built executables for Windows.
+
+If you are running on Windows and you are uncomfortable with running Python, you can use the `GUI.exe` or `command_line.exe` directly, after downloading from the [Release](https://github.com/kv9898/switch_challenge_solver/releases) page.up
 
 Please give me a star if you find this useful.
 
