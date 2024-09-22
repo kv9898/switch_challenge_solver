@@ -1,4 +1,5 @@
 import sys
+import os
 from itertools import permutations
 from PySide6.QtWidgets import (QApplication, QWidget, QMainWindow, QLineEdit, QLabel,
      QHBoxLayout, QVBoxLayout, QGridLayout, QFrame)
@@ -226,7 +227,8 @@ class MainWindow(QMainWindow):
         self.output_shapes = ShapeContainer()
         self.layout.addWidget(self.output_shapes)
 
-        icon = QIcon('favicon.ico')
+        icon_path = os.path.join(os.path.dirname(__file__) , 'favicon.ico')
+        icon = QIcon(icon_path)
         self.setWindowIcon(icon)
 
     def keyPressEvent(self, event):

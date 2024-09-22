@@ -5,7 +5,7 @@ a = Analysis(
     ['GUI.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('favicon.ico', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
