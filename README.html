@@ -53,6 +53,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Drag and Click through the Graphical User Interface (GUI), which is potentially slower, or</p></li>
 <li><p>Enter the full formula, which can be faster when you are more familiar as you have done more assessments (very bad humour).</p></li>
 </ol>
+<p>Please give me a star if you find this useful.</p>
 </section>
 <section id="using-drag-and-click-through-gui" class="level1">
 <h1>Using Drag and Click through GUI</h1>
@@ -68,9 +69,47 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Easy problem</figcaption>
 </figure>
 </div>
-<p><img src="img/level1as.png" class="img-fluid" alt="Answer with GUI"> :::</p>
 <p><em>PS: to clear the formula and answer, hit <code>Tab</code></em></p>
-<p>For the harder question, you may need to enter the formula (from level 4 onward?) and hit <code>Enter</code>.</p>
+<p>For the harder question, you may need to enter the formula (from level 4 onward?) and hit <code>Enter</code>. In the formula, you need to replace the options with <code>x</code>：</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/level4.png" class="img-fluid figure-img"></p>
+<figcaption>Medium problem</figcaption>
+</figure>
+</div>
+<p>The solver can handle x in any position:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/level9.png" class="img-fluid figure-img"></p>
+<figcaption>Hard problem</figcaption>
+</figure>
+</div>
+<p>For the hardest questions with two choices, you need to make a guess about the first choice, and let the solver find the second choice. If the answer is not correct, you need to try again. You may need to try 3 times at most:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/level11.png" class="img-fluid figure-img"></p>
+<figcaption>Hardest problem</figcaption>
+</figure>
+</div>
+<p>In this case, the third option of the first choice is the correct answer. This implies that you need to try 3 times if you do from left to right.</p>
+</section>
+<section id="using-the-full-formula" class="level1">
+<h1>Using the full formula</h1>
+<p>The gist of the full formula is that you encode the outcome (number after <code>=</code>) in such a way that it is a single switch from the input to the output. In this case, ignore the shapes, they don’t do anything. Note that you cannot use this method for the easiest problems (you solve it with your brain).</p>
+<p>Let’s use the hard case as an example:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ff_GUI.png" class="img-fluid figure-img"></p>
+<figcaption>Full Formula with GUI</figcaption>
+</figure>
+</div>
+<p>As the shapes are now redundant, you may want to use the command line, which is more light-weight:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ff_cl.png" class="img-fluid figure-img"></p>
+<figcaption>Full Formula with command line</figcaption>
+</figure>
+</div>
 </section>
 
 </main>
