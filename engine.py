@@ -22,3 +22,11 @@ def compute(formula):
             break
     return(a)
 
+while True:
+
+    formula = input("Formula: ")
+
+    print(compute(formula))
+        
+
+    print("----------------------------------------")
