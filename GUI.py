@@ -151,8 +151,6 @@ class ShapeContainer(QWidget):
 
     def moveToLast(self, shape_widget):
         self.layout.removeWidget(shape_widget)
-
-        # Add the widget to the last position
         self.layout.addWidget(shape_widget, 0, self.layout.columnCount())
         update_sequence()
     def moveToBeginning(self, shape_widget):
