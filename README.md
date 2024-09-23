@@ -4,7 +4,7 @@ There are two ways of using the solver
 
 1.  Drag and Click through the Graphical User Interface (GUI), which is potentially slower. This works only for the `GUI.py` or `GUI.exe`.
 
-2.  Enter the full formula, which can be faster when you are more familiar as you have done more assessments (very bad humour). This works for both `GUI` and `command_line`.
+2.  Enter the full formula, which can be faster when you are more familiar as you have done more assessments (very bad humour). This is available on a [web app](https://rubuky.com/tool/2024-09-23-SwitchChallenge/) and works for both `GUI` and `command_line`.
 
 If you have python on you computer, you can run the `GUI.py` or `command_line.py` directly. Note that you have to use this way if you are running on a MacOS or Linux machine, since I have only built executables for Windows.
 
@@ -42,13 +42,27 @@ In this case, the third option of the first choice is the correct answer. This i
 
 # Using the full formula
 
-The gist of the full formula is that you encode the outcome (number after `=`) in such a way that it is a single switch from the input to the output. In this case, ignore the shapes, they don't do anything. Note that you cannot use this method for the easiest problems (you solve it with your brain).
+There are two ways of using the full formula, long form and short form. In both cases, ignore the shapes in the solver, they don't do anything. Both forms work for the GUI, command line and [web app](https://rubuky.com/tool/2024-09-23-SwitchChallenge/).
+
+In the long form, you enter the input and output colors.
+
+Let's use the hard case as an example, the formula would be:
+
+`ybgr+1324+x+3241=gbyr`
+
+![Long Formula with GUI](img/lf.png)
+
+The gist of the short formula form is that you encode the outcome (number after `=`) in such a way that it is a single switch from the input to the output. Note that you cannot use the short formula for the easiest problems (you solve it with your brain).
 
 Let's use the hard case as an example:
 
-![Full Formula with GUI](img/ff_GUI.png)
+![Short Formula with GUI](img/ff_GUI.png)
 
 As the shapes are now redundant, you may want to use the command line, which is more light-weight:
 
-![Full Formula with command line](img/ff_cl.png)
+![Short Formula with command line](img/ff_cl.png)
+
+You can also access the web app! [Click here](https://rubuky.com/tool/2024-09-23-SwitchChallenge/)
+
+![Short Formula with web app](img/ff_cl.png)
 
