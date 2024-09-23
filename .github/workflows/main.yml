@@ -5,17 +5,17 @@ on:
 
 jobs:
   pyinstaller-build:
-    #runs-on: macos-13
-    runs-on: windows-latest
+    runs-on: macos-13 #- latest
+    #runs-on: windows-latest
     steps:
       - name: GUI
         uses: sayyid5416/pyinstaller@v1
         with:
           python_ver: '3.12.4'
-          spec: 'GUI_win.spec'
+          spec: 'GUI.py'
           # requirements: 'src/requirements.txt'
           upload_exe_with_name: 'GUI'
-          options: --onefile, --windowed
+          options: --onefile, --windowed, --icon favicon.ico, --add-data favicon.ico:.
       #- name: CL
       #  uses: sayyid5416/pyinstaller@v1
       #  with:
