@@ -1,5 +1,5 @@
 import sys
-import os
+#import os
 from itertools import permutations
 from PySide6.QtWidgets import (QApplication, QWidget, QMainWindow, QLineEdit, QLabel,
      QHBoxLayout, QVBoxLayout, QGridLayout, QFrame)
@@ -225,9 +225,9 @@ class MainWindow(QMainWindow):
         self.output_shapes = ShapeContainer()
         self.layout.addWidget(self.output_shapes)
 
-        icon_path = os.path.join(os.path.dirname(__file__) , 'favicon.ico') # comment this out if you don't have an icon
-        icon = QIcon(icon_path) # comment this out if you don't have an icon
-        self.setWindowIcon(icon) # comment this out if you don't have an icon
+        #icon_path = os.path.join(os.path.dirname(__file__) , 'favicon.ico') # comment this out if you don't have an icon
+        #icon = QIcon(icon_path) # comment this out if you don't have an icon
+        #self.setWindowIcon(icon) # comment this out if you don't have an icon
 
     def keyPressEvent(self, event):
         # clear line edits if c is pressed
