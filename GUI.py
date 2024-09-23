@@ -228,12 +228,14 @@ class MainWindow(QMainWindow):
         self.result.setMargin(10)
 
         hlayout = QHBoxLayout()
-        hlayout.addStretch()
+        #hlayout.addStretch()
+        hlayout.addSpacing(100)
         vlayout = QVBoxLayout()
         vlayout.addWidget(self.line_edit)
         vlayout.addWidget(self.result)
         hlayout.addLayout(vlayout)
-        hlayout.addStretch()
+        #hlayout.addStretch()
+        hlayout.addSpacing(100)
 
         self.layout.addLayout(hlayout)
 
@@ -253,7 +255,8 @@ class MainWindow(QMainWindow):
             if '=' in self.line_edit.text() and not self.line_edit.text().endswith("="):
                 self.result.setText(compute(self.line_edit.text()))
             elif self.line_edit.text()=='':
-                self.result.setText(get_outcome())
+                formula = input_sequence + '+x=' + output_sequence
+                self.result.setText(compute(formula))
             else:
                 if self.line_edit.text().endswith("="):
                     formula = input_sequence + '+' + self.line_edit.text() + output_sequence
