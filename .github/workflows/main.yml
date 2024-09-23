@@ -12,7 +12,7 @@ jobs:
         uses: sayyid5416/pyinstaller@v1
         with:
           python_ver: '3.12.4'
-          spec: 'GUI_windows.spec'
+          spec: 'GUI_win.spec'
           # requirements: 'src/requirements.txt'
           upload_exe_with_name: 'GUI'
           options: --onefile, --windowed
