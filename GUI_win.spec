@@ -35,10 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-app = BUNDLE(
-    exe,
-    name='GUI.app',
-    icon=icon=['favicon.ico'],
-    bundle_identifier=None,
+    icon=['favicon.ico'],
 )
