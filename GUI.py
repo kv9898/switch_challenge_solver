@@ -1,6 +1,5 @@
 import sys
 #import os
-from itertools import permutations
 from PySide6.QtWidgets import (QApplication, QWidget, QMainWindow, QLineEdit, QLabel,
      QHBoxLayout, QVBoxLayout, QGridLayout, QFrame)
 from PySide6.QtCore import Qt, QPoint, QMimeData, QEvent
@@ -10,7 +9,28 @@ def compute(formula):
     fml, outcome = formula.split("=")
     fml = fml.split("+")
 
-    answers = ["".join([str(x) for x in list(a)]) for a in permutations([1, 2, 3, 4])]
+    def IsColor(input_string):
+        r = "r" in input_string
+        g = "g" in input_string
+        b = "b" in input_string
+        y = "y" in input_string
+        return (r or g or b or y)
+
+    def get_outcome(input_sequence, output_sequence):
+        map = {i:n for n,i in enumerate(input_sequence)}
+        outcome = [map[o]+1 for o in output_sequence]
+        return("".join(str(x) for x in outcome))
+
+    # if outcome and the first element of fml contains any of "y", "b", "g", "red",
+    # then we need to execute get_outcome()
+    if IsColor(outcome) and IsColor(fml[0]):
+        outcome = get_outcome(fml[0], outcome)
+        fml = fml[1:]
+
+    #answers = ["".join([str(x) for x in list(a)]) for a in permutations([1, 2, 3, 4])]
+    answers = ['1234', '1243', '1324', '1342', '1423', '1432', '2134', '2143', '2314', '2341', 
+               '2413', '2431', '3124', '3142', '3214', '3241', '3412', '3421', '4123', '4132', 
+               '4213', '4231', '4312', '4321']
 
     def switch(a, b):
         a = {o:i for o,i in enumerate(a)}
@@ -186,11 +206,6 @@ def clear_lineedits():
     window.line_edit.clear()
     window.result.clear()
 
-def get_outcome():
-    map = {i:n for n,i in enumerate(input_sequence)}
-    outcome = [map[o]+1 for o in output_sequence]
-    return("".join(str(x) for x in outcome))
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -241,9 +256,9 @@ class MainWindow(QMainWindow):
                 self.result.setText(get_outcome())
             else:
                 if self.line_edit.text().endswith("="):
-                    formula = self.line_edit.text()+get_outcome()
+                    formula = input_sequence + '+' + self.line_edit.text() + output_sequence
                 else:
-                    formula = self.line_edit.text()+'='+get_outcome()
+                    formula = input_sequence + '+' + self.line_edit.text()+ '=' + output_sequence
                 self.result.setText(compute(formula))
         else:
             super().keyPressEvent(event)
