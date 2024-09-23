@@ -15,4 +15,4 @@ jobs:
           spec: 'GUI.py'
           # requirements: 'src/requirements.txt'
           upload_exe_with_name: 'GUI'
-          options: --onefile, --windowed, --icon=favicon.ico, --add-data="favicon.ico;."
+          options: --onefile, --windowed, --icon favicon.ico, --add-data favicon.ico
