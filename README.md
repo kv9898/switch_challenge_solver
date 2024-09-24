@@ -64,5 +64,5 @@ As the shapes are now redundant, you may want to use the command line, which is 
 
 You can also access the web app! [Click here](https://rubuky.com/tool/2024-09-23-SwitchChallenge/)
 
-![Short Formula with web app](img/ff_cl.png)
+![Short Formula with web app](img/ff_web.png)
 
