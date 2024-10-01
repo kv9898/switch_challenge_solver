@@ -1,4 +1,4 @@
-/build
-/dist
 /README_files
 README.html
+app.py
+/legacy
