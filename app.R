@@ -1,5 +1,6 @@
 library(shiny)
 library(sortable)
+library(bslib)
 
 # Define IsColor function
 IsSwitch <- function(input_string) {
@@ -104,7 +105,8 @@ IsComplete <- function(fml){
 }
 
 ui <- fluidPage(
-  tags$script(src = "app.js"),
+  theme = bs_theme(),
+  tags$head(tags$script(src = "app.js")),
   checkboxInput("shape_hide", "Hide Shapes"),
   conditionalPanel(condition = "!input.shape_hide", shapes("initial")),
   textInput("fml", "Formula (press `/~ to clear):"),
@@ -154,4 +156,4 @@ server <- function(input, output, session) {
 
 }
 
-  shinyApp(ui, server)
+shinyApp(ui, server)
