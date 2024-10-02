@@ -38,7 +38,7 @@ In this case, the third option of the first choice is the correct answer. This i
 
 # Using the full formula
 
-There are two ways of using the full formula, long form and short form. In both cases, ignore the shapes in the solver, they don't do anything. Both forms work for the GUI, command line and [web app](https://rubuky.com/tool/2024-09-23-SwitchChallenge/).
+There are two ways of using the full formula, long form and short form. In both cases, ignore the shapes in the solver, they don't do anything. You can even check the box at the top to hide the shapes.
 
 In the long form, you enter the input and output colors.
 
@@ -52,13 +52,8 @@ The gist of the short formula form is that you encode the outcome (number after 
 
 Let's use the hard case as an example:
 
-![Short Formula with GUI](img/ff_GUI.png)
+![Short Formula with GUI](img/sf.png)
 
-As the shapes are now redundant, you may want to use the command line, which is more light-weight:
+You can hide the shapes by checking the box at the top:
 
-![Short Formula with command line](img/ff_cl.png)
-
-You can also access the web app! [Click here](https://rubuky.com/tool/2024-09-23-SwitchChallenge/)
-
-![Short Formula with web app](img/ff_web.png)
-
+![Hide shapes](img/hide.png)
