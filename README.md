@@ -12,7 +12,7 @@ There are two ways of using the solver:
 
 Please give me a star🌟 if you find this useful.
 
-# Using Drag and Click through GUI
+# Using Drag and Drop
 
 Similar to the problems, there are two rows of "shapes", the row at the top is the inputs while the other one at the bottom is the outputs. By dragging and dropping the shapes, you can enter the input and output colours.
 
