@@ -1,4 +1,5 @@
 from PIL import Image, ImageDraw, ImageOps
+import base64
 
 def draw_shape(shape, color, filename):
     # Image size
@@ -56,3 +57,21 @@ draw_shape("cross", (76, 182, 221), "img/blue.png")    # Blue cross
 draw_shape("triangle", (252, 163, 41), "img/yellow.png")  # Yellow triangle
 draw_shape("square", (240, 51, 45), "img/red.png")     # Red square
 draw_shape("circle", (124, 167, 45), "img/green.png")     # Green circle
+
+# Generate Base64-encoded image data
+with open("www/img/blue.png", "rb") as image_file:
+    encoded_data = base64.b64encode(image_file.read())
+print(encoded_data)
+
+
+with open("www/img/green.png", "rb") as image_file:
+    encoded_data = base64.b64encode(image_file.read())
+print(encoded_data)
+
+with open("www/img/red.png", "rb") as image_file:
+    encoded_data = base64.b64encode(image_file.read())
+print(encoded_data)
+
+with open("www/img/yellow.png", "rb") as image_file:
+    encoded_data = base64.b64encode(image_file.read())
+print(encoded_data)
