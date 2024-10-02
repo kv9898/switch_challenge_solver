@@ -32,8 +32,8 @@ compute <- function(formula) {
 
   # Define switch function
   switch_func <- function(a, b) {
-    map <- setNames(seq_along(strsplit(a, NULL)[[1]]), strsplit(a, NULL)[[1]])
-    new <- sapply(strsplit(b, NULL)[[1]], function(n) map[[as.character(n)]])
+    map <- strsplit(a, NULL)[[1]]
+    new <- sapply(strsplit(b, NULL)[[1]], function(n) map[as.integer(n)])
     return(paste0(new, collapse = ""))
   }
   
