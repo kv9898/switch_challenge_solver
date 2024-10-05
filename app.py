@@ -114,25 +114,25 @@ def server(input, output, session):
     def text():
         fml = input.fml().strip()
         type = IsComplete(fml)
-        if type=="incomplete": return ''
-        if type=="empty":
-            if initial()=="" or final()=="": return ''
-            else: return get_outcome(initial(), final())
-        if type=="short": return compute(fml)
-        if type=="long":
-            parts, outcome = fml.split("=")
-            parts = parts.split("+")
-            outcome = get_outcome(parts[0], outcome)
-            parts = parts[1:]
-            formula = "+".join(parts)
-            formula = formula + "=" + outcome
-            return compute(formula)
-        if type=="shape":
-            if initial()=="" or final()=="": return 'Please move the shapes'
-            outcome = get_outcome(initial(), final())
-            formula = fml + "=" + outcome
-            return compute(formula)
-
+        match type:
+            case "incomplete": return ""
+            case "empty":
+                if initial()=="" or final()=="": return ''
+                else: return get_outcome(initial(), final())
+            case "short": return compute(fml)
+            case "long":
+                parts, outcome = fml.split("=")
+                parts = parts.split("+")
+                outcome = get_outcome(parts[0], outcome)
+                parts = parts[1:]
+                formula = "+".join(parts)
+                formula = formula + "=" + outcome
+                return compute(formula)
+            case "shape":
+                if initial()=="" or final()=="": return 'Please move the shapes'
+                outcome = get_outcome(initial(), final())
+                formula = fml + "=" + outcome
+                return compute(formula)
 
     @reactive.effect
     @reactive.event(input.initial)
