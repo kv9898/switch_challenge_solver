@@ -216,7 +216,7 @@
         "Maintainer": "Carson Sievert <carson@posit.co>",
         "Repository": "CRAN",
         "Date/Publication": "2024-07-29 19:20:02 UTC",
-        "Built": "R 4.4.1; ; 2024-08-02 01:44:34 UTC; windows"
+        "Built": "R 4.4.1; ; 2024-09-30 01:46:13 UTC; windows"
       }
     },
     "cachem": {
@@ -1572,40 +1572,40 @@
   },
   "files": {
     "app.py": {
-      "checksum": "6412442f7506aa748fa39506e30d3707"
+      "checksum": "c40580c62759e03d94ba6129e1f73cf0"
     },
     "app.R": {
-      "checksum": "ab2924bd525fdc661e51c95f55a43d21"
+      "checksum": "546ad79b2d28083486fc35c6dd89ecda"
+    },
+    "app_py.js": {
+      "checksum": "33ee24b864f386c84217b0e3e4338378"
     },
     "deploy.R": {
-      "checksum": "626790a909ab846e24b0f6125a335f20"
+      "checksum": "cbeeec32d305ee342797dd92cf341fe1"
     },
-    "img/ff_cl.png": {
-      "checksum": "3a3f64bff53d40eb1c96713868a2ad80"
-    },
-    "img/ff_GUI.png": {
-      "checksum": "f04bbf0670de9204e8b2a0f4ede19ea3"
-    },
-    "img/ff_web.png": {
-      "checksum": "092f6e1c643a9cb604a1f736940e2478"
+    "img/hide.png": {
+      "checksum": "1a1e013b16d1f4d398d9fb933e148b28"
     },
     "img/icon.png": {
       "checksum": "c207a3a808b019741550b9fbeab68b13"
     },
     "img/level1.png": {
-      "checksum": "962a7d84642ebf8d1bc3d7d19f8abb37"
+      "checksum": "155ce66184a1f881275a3805ffcdca18"
     },
     "img/level11.png": {
-      "checksum": "f29adba827ddf27277da28b0ee550031"
+      "checksum": "5f25e5b98212a86d56f2f2897f557fa6"
     },
     "img/level4.png": {
-      "checksum": "5e45b6358cde474a5d4594188c9271f5"
+      "checksum": "c00725285de118751a169ca865dcde36"
     },
     "img/level9.png": {
-      "checksum": "a2b4238e3078619f5ed14e555c3d90d8"
+      "checksum": "f9ddeada6f3a59be77a9a27e51b1a9df"
     },
     "img/lf.png": {
-      "checksum": "da638e46e26aca1caf27183f55fe01ac"
+      "checksum": "92d40c4700084f644b2af0419b266591"
+    },
+    "img/sf.png": {
+      "checksum": "899b142b8d306e9c300823fc430e613f"
     },
     "legacy/command_line.py": {
       "checksum": "f756909ce6d1c19f8a06c1c0184fcafa"
@@ -1625,11 +1625,38 @@
     "legacy/GUI_win.spec": {
       "checksum": "efea482aa0d8ed2fcac597a4d80d2efd"
     },
+    "legacy/img/ff_cl.png": {
+      "checksum": "3a3f64bff53d40eb1c96713868a2ad80"
+    },
+    "legacy/img/ff_GUI.png": {
+      "checksum": "f04bbf0670de9204e8b2a0f4ede19ea3"
+    },
+    "legacy/img/ff_web.png": {
+      "checksum": "092f6e1c643a9cb604a1f736940e2478"
+    },
+    "legacy/img/level1.png": {
+      "checksum": "962a7d84642ebf8d1bc3d7d19f8abb37"
+    },
+    "legacy/img/level11.png": {
+      "checksum": "f29adba827ddf27277da28b0ee550031"
+    },
+    "legacy/img/level4.png": {
+      "checksum": "5e45b6358cde474a5d4594188c9271f5"
+    },
+    "legacy/img/level9.png": {
+      "checksum": "a2b4238e3078619f5ed14e555c3d90d8"
+    },
+    "legacy/img/lf.png": {
+      "checksum": "da638e46e26aca1caf27183f55fe01ac"
+    },
     "README.html": {
-      "checksum": "91a1149289c010f2f6e62cc85ea73a4c"
+      "checksum": "66212ea53471c42cb4125f8a88932bcd"
     },
     "README.md": {
-      "checksum": "1ba0ebc4ec60f2c0f5308def0ffb818e"
+      "checksum": "3a3ee4ddd87b4cd6752c6cab850f4d5b"
+    },
+    "README_files/libs/bootstrap/bootstrap-1addff598016a11b28a5906c0767db6d.min.css": {
+      "checksum": "1addff598016a11b28a5906c0767db6d"
     },
     "README_files/libs/bootstrap/bootstrap-icons.css": {
       "checksum": "2318f137d201fbf51601fa0faba6bef7"
@@ -1652,11 +1679,14 @@
     "README_files/libs/quarto-html/popper.min.js": {
       "checksum": "3a4a291ccf3f1ea0f82b641542fd3827"
     },
+    "README_files/libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css": {
+      "checksum": "018089954d508eae8a473f0b7f0491f0"
+    },
     "README_files/libs/quarto-html/quarto-syntax-highlighting.css": {
       "checksum": "ab2b9e94a89b131e869fd951d6355545"
     },
     "README_files/libs/quarto-html/quarto.js": {
-      "checksum": "7563d37e31580c9573af5b12aa3779a2"
+      "checksum": "b2cce65711e74956eb7b7aa2f4d3943f"
     },
     "README_files/libs/quarto-html/tippy.css": {
       "checksum": "ebd6f8ce46a677e1a4f5f8a8317109a9"
@@ -1665,13 +1695,13 @@
       "checksum": "d828775275749701b48bd9d958814111"
     },
     "www/app.js": {
-      "checksum": "93ddbc7668478323d277e223cf5f4411"
+      "checksum": "c35129155319752b152f44ef7224c78f"
     },
     "www/img/blue.png": {
       "checksum": "a77b77b1fcc738f213e0209e4c44cf73"
     },
     "www/img/draw.py": {
-      "checksum": "914bebccc8a05652a1b5859049542db0"
+      "checksum": "821df4dfc0be7c4b35314bf947fbd4f2"
     },
     "www/img/green.png": {
       "checksum": "4800caf5eeee30ddf036edb4182558ca"
@@ -1681,6 +1711,9 @@
     },
     "www/img/yellow.png": {
       "checksum": "2dc6b9433d3775fa205adfb6e04278a0"
+    },
+    "www/sortable/sortable.js": {
+      "checksum": "c3dbe7605f7729413963706647dcf286"
     }
   },
   "users": null
