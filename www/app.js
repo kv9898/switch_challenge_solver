@@ -14,7 +14,6 @@ $(document).on("keypress", function(event) {
 
 window.addEventListener('message', function(e) {
     // Check the origin of the sender
-    alert(e.data);
     if (e.data === 'light-mode') {
         document.documentElement.style.setProperty('--bs-body-bg', "#f9fffe");
     } else if (e.data === 'dark-mode') {
