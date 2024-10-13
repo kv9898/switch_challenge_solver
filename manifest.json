@@ -1572,13 +1572,13 @@
   },
   "files": {
     "app.py": {
-      "checksum": "c40580c62759e03d94ba6129e1f73cf0"
+      "checksum": "6a044dd0c8f48edb2dbd2a9024b18ec0"
     },
     "app.R": {
-      "checksum": "546ad79b2d28083486fc35c6dd89ecda"
+      "checksum": "2abed0378beb3f4bf50f39005024a851"
     },
     "app_py.js": {
-      "checksum": "33ee24b864f386c84217b0e3e4338378"
+      "checksum": "7a1af880963a3227d2e88c9a5d2776ad"
     },
     "deploy.R": {
       "checksum": "cbeeec32d305ee342797dd92cf341fe1"
@@ -1695,7 +1695,7 @@
       "checksum": "d828775275749701b48bd9d958814111"
     },
     "www/app.js": {
-      "checksum": "c35129155319752b152f44ef7224c78f"
+      "checksum": "219c3a783417b70f1f5191e03cbca2b7"
     },
     "www/img/blue.png": {
       "checksum": "a77b77b1fcc738f213e0209e4c44cf73"

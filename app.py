@@ -43,34 +43,55 @@ def IsSwitch(input_string):
     four = "4" in input_string
     return (one and two and three and four)
 
-def get_outcome(input_sequence, output_sequence):
+def GetOutcome(input_sequence, output_sequence):
     map = {i:n for n,i in enumerate(input_sequence)}
     outcome = [map[o]+1 for o in output_sequence]
     return("".join(str(x) for x in outcome))
     
-def compute(formula):
+def compute(formula: str) -> str:
     fml, outcome = formula.split("=")
     fml = fml.split("+")
+    fml.append(outcome)
+    del outcome
 
-    #answers = ["".join([str(x) for x in list(a)]) for a in permutations([1, 2, 3, 4])]
-    answers = ['1234', '1243', '1324', '1342', '1423', '1432', '2134', '2143', '2314', '2341', 
-            '2413', '2431', '3124', '3142', '3214', '3241', '3412', '3421', '4123', '4132', 
-            '4213', '4231', '4312', '4321']
-
-    def switch(a, b):
+    def switch(a: str, b: str) -> str:
         a = {o:i for o,i in enumerate(a)}
         new = [a[int(n)-1] for n in b]
         return("".join(str(x) for x in new))
 
-    for a in answers:
-        # replace x in fmlwith a
-        fml_temp = list(map(lambda x: x.replace('x', a), fml))
-        out = "1234"
-        for i in range(len(fml_temp)):
-            out = switch(out, fml_temp[i])
-        if out == outcome:
-            break
-    return(a)
+    def ReverseSwitch(b: str, outcome: str) -> str:
+        # Create a list of characters representing 'a' initialized with empty strings
+        a = [''] * len(outcome)
+        # Iterate over the outcome string and corresponding indices from 'b'
+        for i, char in enumerate(outcome):
+            # Convert the character from 'b' into an integer index, and place the corresponding 'outcome' character in 'a'
+            a[int(b[i])-1] = char
+        # Join the list back into a string and return it
+        return ''.join(a)
+    
+    x_index = fml.index('x')
+    lhs = fml[:x_index]
+    rhs = fml[x_index+1:]
+
+    if len(rhs) == 1:
+        rhs = rhs[0]
+    else:
+        b = rhs[-1]
+        for i in range(1, len(rhs)):
+            b = ReverseSwitch(rhs[-i-1], b)
+        rhs = b
+        del b
+
+    match len(lhs):
+        case 0:
+            return rhs
+        case 1:
+            return GetOutcome(lhs[0], rhs)
+        case _:
+            a = lhs[0]
+            for l in lhs[1:]:
+                a = switch(a, l)
+            return GetOutcome(a, rhs,)
 
 def IsComplete(fml):
     if (fml == ""): return "empty"
@@ -98,11 +119,14 @@ def IsComplete(fml):
         return "incomplete"
 
 app_ui = ui.page_fluid(
-    shapes("initial"),
+    ui.input_checkbox("shape_hide", "Hide Shapes"),
+    ui.panel_conditional("!input.shape_hide",
+        shapes("initial")),
     ui.head_content(ui.include_js("app_py.js")),
-    ui.input_text("fml", "Formula:", ""),
+    ui.input_text("fml", "Formula (press `/~ to clear):", ""),
     ui.output_text_verbatim("text"),
-    shapes("final"),
+    ui.panel_conditional("!input.shape_hide",
+    shapes("final")),
     #ui.head_content(ui.include_js(Path(__file__).parent / "light-dark.js")),
 )
 
@@ -118,19 +142,19 @@ def server(input, output, session):
             case "incomplete": return ""
             case "empty":
                 if initial()=="" or final()=="": return ''
-                else: return get_outcome(initial(), final())
+                else: return GetOutcome(initial(), final())
             case "short": return compute(fml)
             case "long":
                 parts, outcome = fml.split("=")
                 parts = parts.split("+")
-                outcome = get_outcome(parts[0], outcome)
+                outcome = GetOutcome(parts[0], outcome)
                 parts = parts[1:]
                 formula = "+".join(parts)
                 formula = formula + "=" + outcome
                 return compute(formula)
             case "shape":
                 if initial()=="" or final()=="": return 'Please move the shapes'
-                outcome = get_outcome(initial(), final())
+                outcome = GetOutcome(initial(), final())
                 formula = fml + "=" + outcome
                 return compute(formula)
 
