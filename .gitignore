@@ -2,5 +2,5 @@
 README.html
 /legacy
 deploy.R
-rsconnect/
-rsconnect-python/
+/rsconnect
+/rsconnect-python
