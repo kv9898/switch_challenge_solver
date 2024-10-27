@@ -45,6 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     } else {
-        console.error("Element with id 'initial' not found");
+        console.error("Element with id 'final' not found");
     }
 });
