@@ -162,7 +162,7 @@ def server(input, output, session):
         if input.keyid() == 96:  # clear input when ` or ~ is pressed
             ui.update_text("fml", value="")
             await sortable.update(session, "initial", ["b", "g", "r", "y"])
-            await session.send_custom_message("sortable_update_final", {"order": ["b", "g", "r", "y"]})
+            await sortable.update(session, "final", ["b", "g", "r", "y"])
 
 
 app = App(app_ui, server, debug=True, static_assets= Path(__file__).parent / "www")
