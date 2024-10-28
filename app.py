@@ -1,19 +1,10 @@
 from shiny import *
 from pathlib import Path
-from htmltools import HTMLDependency
+import shiny_sortable as sortable
 
-sortable_dep = HTMLDependency(
-    name = "SortableJS",
-    version = "1.15.3",
-    source={
-            "subdir": "www/sortable/",
-        },
-    script= {"src": "sortable.js"},
-)
-
-def shapes(inputId):
+@sortable.make(updatable = True)
+def shapes(inputID):
     return ui.tags.div(
-        sortable_dep,
         ui.tags.img(src="img/blue.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
@@ -30,9 +21,9 @@ def shapes(inputId):
             class_="item", 
             style="width:50px; height:50px; margin: 5px;",
             **{'data-id': 'r'}),
-        id=inputId,
-        class_="sortable"
-    )
+        id=inputID,
+        class_="sortable")
+        # sortable.input(inputID),
 
 def IsSwitch(input_string):
     one = "1" in input_string
@@ -167,10 +158,11 @@ def server(input, output, session):
         final.set(''.join(input.final()))
     @reactive.effect
     @reactive.event(input.keyid)
-    def _():
+    async def _():
         if input.keyid() == 96:  # clear input when ` or ~ is pressed
-            print("clear")
             ui.update_text("fml", value="")
+            await sortable.update(session, "initial", ["b", "g", "r", "y"])
+            await sortable.update(session, "final", ["b", "g", "r", "y"])
 
 
-app = App(app_ui, server, debug=True, static_assets= Path(__file__).parent / "www")
+app = App(app_ui, server, static_assets= Path(__file__).parent / "www")
