@@ -1,35 +1,26 @@
 from shiny import *
 from pathlib import Path
-from htmltools import HTMLDependency
-
-sortable_dep = HTMLDependency(
-    name = "SortableJS",
-    version = "1.15.3",
-    source={
-            "subdir": "www/sortable/",
-        },
-    script= {"src": "sortable.js"},
-)
+from sortable import sortable_dep
 
 def shapes(inputId):
     return ui.tags.div(
-        sortable_dep,
+        sortable_dep(),
         ui.tags.img(src="img/blue.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
-            **{'data-id': 'b'}),
+            **{'id': 'b'}),
         ui.tags.img(src="img/yellow.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
-            **{'data-id': 'y'}),
+            **{'id': 'y'}),
         ui.tags.img(src="img/green.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
-            **{'data-id': 'g'}),
+            **{'id': 'g'}),
         ui.tags.img(src="img/red.png",
             class_="item", 
             style="width:50px; height:50px; margin: 5px;",
-            **{'data-id': 'r'}),
+            **{'id': 'r'}),
         id=inputId,
         class_="sortable"
     )
