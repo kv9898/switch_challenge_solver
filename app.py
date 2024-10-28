@@ -1,6 +1,6 @@
 from shiny import *
 from pathlib import Path
-import sortable
+import shiny_sortable as sortable
 
 @sortable.make(updatable = True)
 def shapes(inputID):
@@ -165,4 +165,4 @@ def server(input, output, session):
             await sortable.update(session, "final", ["b", "g", "r", "y"])
 
 
-app = App(app_ui, server, debug=True, static_assets= Path(__file__).parent / "www")
+app = App(app_ui, server, static_assets= Path(__file__).parent / "www")
