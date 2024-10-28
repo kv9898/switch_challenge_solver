@@ -15,7 +15,7 @@ def dep() -> HTMLDependency:
     )
     return sortable_dep
 
-def input(inputID, dataID="id"):
+def input(inputID, dataID="data-id"):
     script =  f"""
     var el_{inputID} = document.getElementById('{inputID}');
     if (el_{inputID}) {{
@@ -35,17 +35,42 @@ def input(inputID, dataID="id"):
     """
     return tags.script(script)
 
-def make(func, ID = "inputID"):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        input_id = kwargs.get(ID) if ID in kwargs else (args[0] if len(args) > 0 else None)
+def output(outputID):
+    script = f"""
+    Shiny.addCustomMessageHandler("sortable_update_{outputID}", function(message) {{
+        if (typeof sortable_{outputID} !== 'undefined') {{
+            sortable_{outputID}.sort(message.order);
+            Shiny.setInputValue("{outputID}", message.order);
+        }} else {{
+            console.error("sortable_{outputID} is not defined. Cannot update order.");
+        }}
+    }});
+    """
+    return tags.script(script)
 
-        if input_id is None:
-            return tags.div(dep(), func(*args, **kwargs))
+def make(ID = "inputID", updatable = False):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            div = [dep(), func(*args, **kwargs)]
+            input_id = kwargs.get(ID) if ID in kwargs else (args[0] if len(args) > 0 else None)
+            if input_id is None:
+                if updatable:
+                    print("No input ID provided. Cannot update order.")
+                return tags.div(*div)
 
-        # Call the original function
-        print(f"input_id:{input_id}")
-        return tags.div(dep(), func(*args, **kwargs), input(input_id))
-    return wrapper
+            # Call the original function
+            div.append(input(input_id))#.append(output(input_id))
+            if updatable:
+                div.append(output(input_id))
+            return tags.div(*div)
+        return wrapper
+    return decorator
+
+async def update(session, ID, order):
+    type = f"sortable_update_{ID}"
+    message = {"order": order}
+    await session.send_custom_message(type, message)
+
     
 

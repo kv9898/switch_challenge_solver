@@ -2,25 +2,25 @@ from shiny import *
 from pathlib import Path
 import sortable
 
-@sortable.make
+@sortable.make(updatable = True)
 def shapes(inputID):
     return ui.tags.div(
         ui.tags.img(src="img/blue.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
-            **{'id': 'b'}),
+            **{'data-id': 'b'}),
         ui.tags.img(src="img/yellow.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
-            **{'id': 'y'}),
+            **{'data-id': 'y'}),
         ui.tags.img(src="img/green.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
-            **{'id': 'g'}),
+            **{'data-id': 'g'}),
         ui.tags.img(src="img/red.png",
             class_="item", 
             style="width:50px; height:50px; margin: 5px;",
-            **{'id': 'r'}),
+            **{'data-id': 'r'}),
         id=inputID,
         class_="sortable")
         # sortable.input(inputID),
@@ -158,10 +158,11 @@ def server(input, output, session):
         final.set(''.join(input.final()))
     @reactive.effect
     @reactive.event(input.keyid)
-    def _():
+    async def _():
         if input.keyid() == 96:  # clear input when ` or ~ is pressed
-            print("clear")
             ui.update_text("fml", value="")
+            await sortable.update(session, "initial", ["b", "g", "r", "y"])
+            await session.send_custom_message("sortable_update_final", {"order": ["b", "g", "r", "y"]})
 
 
 app = App(app_ui, server, debug=True, static_assets= Path(__file__).parent / "www")
