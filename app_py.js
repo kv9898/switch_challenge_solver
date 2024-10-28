@@ -16,37 +16,3 @@ window.addEventListener('message', function(e) {
 
 
 window.parent.postMessage('ShinyColorQuery', '*');
-
-// own sortableJS script
-document.addEventListener("DOMContentLoaded", function() {
-    var el_ini = document.getElementById('initial');
-    if (el_ini) {  // Check if element exists
-        var sortable_ini = new Sortable(el_ini, {
-            dataIdAttr: 'id',
-            animation: 150,  // Optional animation speed
-            ghostClass: 'sortable-ghost',  // Class name for the placeholder element during drag
-            chosenClass: 'sortable-chosen', // Class name for the chosen item
-            onSort: function (evt) {
-                var order = sortable_ini.toArray();
-                Shiny.setInputValue("initial", order);
-            }
-        });
-    } else {
-        console.error("Element with id 'initial' not found");
-    }
-    var el_fin = document.getElementById('final');
-    if (el_fin) {  // Check if element exists
-        var sortable_fin = new Sortable(el_fin, {
-            dataIdAttr: 'id',
-            animation: 150,  // Optional animation speed
-            ghostClass: 'sortable-ghost',  // Class name for the placeholder element during drag
-            chosenClass: 'sortable-chosen', // Class name for the chosen item
-            onSort: function (evt) {
-                var order = sortable_fin.toArray();
-                Shiny.setInputValue("final", order);
-            }
-        });
-    } else {
-        console.error("Element with id 'final' not found");
-    }
-});

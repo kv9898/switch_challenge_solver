@@ -1,10 +1,10 @@
 from shiny import *
 from pathlib import Path
-from sortable import sortable_dep
+import sortable
 
-def shapes(inputId):
+@sortable.make
+def shapes(inputID):
     return ui.tags.div(
-        sortable_dep(),
         ui.tags.img(src="img/blue.png", 
             class_="item",
             style="width:50px; height:50px; margin: 5px;",
@@ -21,9 +21,9 @@ def shapes(inputId):
             class_="item", 
             style="width:50px; height:50px; margin: 5px;",
             **{'id': 'r'}),
-        id=inputId,
-        class_="sortable"
-    )
+        id=inputID,
+        class_="sortable")
+        # sortable.input(inputID),
 
 def IsSwitch(input_string):
     one = "1" in input_string
