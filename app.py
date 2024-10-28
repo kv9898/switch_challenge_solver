@@ -32,8 +32,6 @@ def shapes(inputId):
             **{'data-id': 'r'}),
         id=inputId,
         class_="sortable"
-        #class_="js-sortable row",
-        #data_hs_sortable_options='{\"animation\": 150, \"ghostClass\": \"sortablejs-custom-chosen-child\"}'
     )
 
 def IsSwitch(input_string):
@@ -127,7 +125,6 @@ app_ui = ui.page_fluid(
     ui.output_text_verbatim("text"),
     ui.panel_conditional("!input.shape_hide",
     shapes("final")),
-    #ui.head_content(ui.include_js(Path(__file__).parent / "light-dark.js")),
 )
 
 def server(input, output, session):
