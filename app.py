@@ -108,11 +108,20 @@ def IsComplete(fml):
         return "incomplete"
 
 app_ui = ui.page_fluid(
+    ui.head_content(ui.include_js("app_py.js")),
+    ui.tags.head(
+        ui.tags.style(
+            ".container-fluid {  max-width: 300px;}",
+            type="text/css"
+        )
+    ),
     ui.input_checkbox("shape_hide", "Hide Shapes"),
     ui.panel_conditional("!input.shape_hide",
         shapes("initial")),
-    ui.head_content(ui.include_js("app_py.js")),
-    ui.input_text("fml", "Formula (press `/~ to clear):", ""),
+    "Formula (press `/~ to ",
+    ui.input_action_link("clear", "Clear"),
+    "):",
+    ui.input_text("fml", "", ""),
     ui.output_text_verbatim("text"),
     ui.panel_conditional("!input.shape_hide",
     shapes("final")),
@@ -156,13 +165,19 @@ def server(input, output, session):
     def _():
         # This block of code will be triggered whenever input.initial() changes
         final.set(''.join(input.final()))
+    
+    async def clear():
+        ui.update_text("fml", value="")
+        await sortable.update(session, "initial", ["b", "g", "r", "y"])
+        await sortable.update(session, "final", ["b", "g", "r", "y"])
     @reactive.effect
-    @reactive.event(input.keyid)
+    @reactive.event(input.key)
     async def _():
-        if input.keyid() == 96:  # clear input when ` or ~ is pressed
-            ui.update_text("fml", value="")
-            await sortable.update(session, "initial", ["b", "g", "r", "y"])
-            await sortable.update(session, "final", ["b", "g", "r", "y"])
-
+        if input.key() == "`":  # clear input when ` or ~ is pressed
+            await clear()
+    @reactive.effect
+    @reactive.event(input.clear)
+    async def _():
+        await clear()
 
 app = App(app_ui, server, static_assets= Path(__file__).parent / "www")

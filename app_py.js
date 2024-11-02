@@ -1,6 +1,8 @@
 // shiny keypress
-$(document).on("keypress", function(event) {
-    Shiny.setInputValue("keyid", event.keyCode);
+$(document).on("keyup", function(event) {
+    if (event.key == "`"){
+        Shiny.setInputValue("key", event.key);
+    }
 });
 // colour mode
 window.addEventListener('message', function(e) {
