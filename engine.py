@@ -1,29 +1,88 @@
-def IsSwitch(input_string):
+def IsSwitch(input_string: str) -> bool:
+    """
+    Check if the input string contains the digits '1', '2', '3', and '4' which correspond to the switch positions.
+
+    Args:
+        input_string (str): The string to be checked.
+
+    Returns:
+        bool: True if all digits '1', '2', '3', and '4' are present in the input string, False otherwise.
+    """
+    # Check if the string contains the digits '1', '2', '3', and '4'.
     one = "1" in input_string
     two = "2" in input_string
     three = "3" in input_string
     four = "4" in input_string
+
+    # Return True if all digits are present, False otherwise.
     return one and two and three and four
 
 
-def GetOutcome(input_sequence, output_sequence):
+def GetOutcome(input_sequence: str, output_sequence: str) -> str:
+    """
+    Solves a single switch.
+
+    Args:
+        input_sequence (str): The input sequence.
+        output_sequence (str): The output sequence.
+
+    Returns:
+        str: The single switch.
+    """
+    # Create a dictionary mapping the characters in the input sequence to their indices
     map = {i: n for n, i in enumerate(input_sequence)}
+    # Create a list of characters representing the outcome sequence
+    # by using the indices from the map to look up the corresponding
+    # characters in the output sequence
     outcome = [map[o] + 1 for o in output_sequence]
+    # Join the list into a string and return it
     return "".join(str(x) for x in outcome)
 
 
 def compute(formula: str) -> str:
+    """
+    Compute the outcome of the given formula.
+
+    The formula should be a string containing the switch positions and the outcome
+    separated by an '=' character.
+
+    Args:
+        formula (str): The formula to be computed.
+
+    Returns:
+        str: The computed outcome.
+    """
     fml, outcome = formula.split("=")
     fml = fml.split("+")
     fml.append(outcome)
     del outcome
 
     def switch(a: str, b: str) -> str:
+        """
+        Compute the outcome of a single switch.
+
+        Args:
+            a (str): The sequence to be switched.
+            b (str): The switch positions.
+
+        Returns:
+            str: The computed outcome.
+        """
         a = {o: i for o, i in enumerate(a)}
         new = [a[int(n) - 1] for n in b]
         return "".join(str(x) for x in new)
 
     def ReverseSwitch(b: str, outcome: str) -> str:
+        """
+        Compute the reverse of a single switch.
+
+        Args:
+            b (str): The switch positions.
+            outcome (str): The outcome of the switch.
+
+        Returns:
+            str: The computed reverse switch.
+        """
         # Create a list of characters representing 'a' initialized with empty strings
         a = [""] * len(outcome)
         # Iterate over the outcome string and corresponding indices from 'b'
@@ -61,7 +120,17 @@ def compute(formula: str) -> str:
             )
 
 
-def IsComplete(fml):
+def IsComplete(fml: str) -> str:
+    """
+    Determines the completeness and type of a formula.
+    
+    Args:
+        fml (str): The formula to be checked.
+    
+    Returns:
+        str: The type of completeness or category of the formula, 
+             such as 'empty', 'shape', 'short', 'long', or 'incomplete'.
+    """
     if fml == "":
         return "empty"
     if fml == "x":
