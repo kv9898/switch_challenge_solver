@@ -2,6 +2,14 @@
 
 The Switch Challenge Solver can be accessed from my [website page](https://rubuky.com/tool/2024-09-23-SwitchChallenge/) or from [shinyapps.io](https://kv9898.shinyapps.io/switch_challenge/).
 
+# Explanation of the source files
+
+- `app.py`: the shiny GUI interface for the solver. Run this script to serve the app locally.
+- `engine.py`: the lightweight standalone solver engine, which contains a Command Line Interface (CLI) for the solver.
+- `app_py.js`: the javascript script for handling light/dark mode.
+- `www/img`: the shape images used in the solver and the python script used to generate the images.
+
+
 # How to Use the Switch Challenge Solver
 
 There are two ways of using the solver:
