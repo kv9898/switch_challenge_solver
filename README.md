@@ -1,6 +1,6 @@
 # Access the Switch Challenge Solver
 
-The Switch Challenge Solver can be accessed from my [website page](https://rubuky.com/tool/2024-09-23-SwitchChallenge/) or from [shinyapps.io](https://kv9898.shinyapps.io/switch_challenge/).
+The Switch Challenge Solver can be accessed from my [website page](https://rubuky.com/tool/2024-09-23-SwitchChallenge/).
 
 # Explanation of the source files
 
