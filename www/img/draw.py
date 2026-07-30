@@ -1,3 +1,6 @@
+# This asset-generation script requires Pillow, which is intentionally not a
+# runtime dependency. Install it separately before running this script:
+#     uv pip install pillow
 from PIL import Image, ImageDraw, ImageOps
 import base64
 
